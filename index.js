@@ -32,7 +32,7 @@ app.use('/website', webRoutes)
 app.get('/', (req, res) => {
     res.send({
         status: true,
-        message: 'backend of gym wewbsite is running now...'
+        message: 'backend of GYM Website is running now...😍😍'
     })
 })
 
