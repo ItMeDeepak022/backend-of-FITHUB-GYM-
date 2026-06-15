@@ -2,9 +2,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const authModel = require("../../../models/dashboardModel/auth.model")
 let jwt = require('jsonwebtoken');
-const sendMail = require('../../../config/sendEmailConfig');
 const { default: axios } = require('axios');
-const cloudinary = require('../../../config/cloudinary')
+const cloudinary = require('../../../config/cloudinary');
+const { sendMail } = require('../../../config/sendMailConfig');
 let register = async (req, res) => {
 
     try {
@@ -235,7 +235,7 @@ let login = async (req, res) => {
         // Email Not Found
         if (!checkEmail) {
 
-            await sendMail.sendMail(
+            await sendMail(
 
                 "Wrong Email Alert",
 
@@ -529,7 +529,7 @@ let login = async (req, res) => {
         // Wrong Password
         if (!checkPassword) {
 
-            await sendMail.sendMail(
+            await sendMail(
 
                 "Wrong Password Alert",
 
@@ -804,7 +804,7 @@ let login = async (req, res) => {
 
 
         // Login Success
-        await sendMail.sendMail(
+        await sendMail(
 
             "Login Success",
 
