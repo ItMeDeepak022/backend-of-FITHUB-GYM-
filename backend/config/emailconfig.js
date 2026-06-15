@@ -4,8 +4,8 @@ const sendEmailQuery = async ({ to, subject, html }) => {
     let transporter = nodemailer.createTransport(
         {
             host: "smtp.gmail.com",
-            port:465,
-            secure:true, // Use true for port 465, false for port 587
+            port: 587,
+            secure: false, // Use true for port 465, false for port 587
             auth: {
                 user: process.env.Email,
                 pass: process.env.Pass
@@ -25,4 +25,4 @@ const sendEmailQuery = async ({ to, subject, html }) => {
 
 }
 
-module.exports= {sendEmailQuery}
+module.exports = { sendEmailQuery }
