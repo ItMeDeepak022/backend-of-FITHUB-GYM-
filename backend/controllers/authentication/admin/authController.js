@@ -235,281 +235,281 @@ let login = async (req, res) => {
         // Email Not Found
         if (!checkEmail) {
 
-            await sendMail(
+        //     await sendMail(
 
-                "Wrong Email Alert",
+        //         "Wrong Email Alert",
 
-                `
-        <!DOCTYPE html>
+        //         `
+        // <!DOCTYPE html>
 
-        <html>
+        // <html>
 
-        <head>
+        // <head>
 
-            <meta charset="UTF-8"/>
+        //     <meta charset="UTF-8"/>
 
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        //     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        </head>
+        // </head>
 
-        <body style="
-            margin:0;
-            padding:0;
-            background:#f3f4f6;
-            font-family:Arial,sans-serif;
-        ">
+        // <body style="
+        //     margin:0;
+        //     padding:0;
+        //     background:#f3f4f6;
+        //     font-family:Arial,sans-serif;
+        // ">
 
-            <div style="
-                width:100%;
-                padding:20px 10px;
-                box-sizing:border-box;
-            ">
+        //     <div style="
+        //         width:100%;
+        //         padding:20px 10px;
+        //         box-sizing:border-box;
+        //     ">
 
-                <div style="
-                    max-width:650px;
-                    margin:auto;
-                    background:#ffffff;
-                    border-radius:16px;
-                    overflow:hidden;
-                    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-                ">
+        //         <div style="
+        //             max-width:650px;
+        //             margin:auto;
+        //             background:#ffffff;
+        //             border-radius:16px;
+        //             overflow:hidden;
+        //             box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        //         ">
 
-                    <!-- Header -->
-                    <div style="
-                        background:#dc2626;
-                        padding:30px 20px;
-                        text-align:center;
-                        color:white;
-                    ">
+        //             <!-- Header -->
+        //             <div style="
+        //                 background:#dc2626;
+        //                 padding:30px 20px;
+        //                 text-align:center;
+        //                 color:white;
+        //             ">
 
-                        <h1 style="
-                            margin:0;
-                            font-size:28px;
-                        ">
-                            Security Alert
-                        </h1>
+        //                 <h1 style="
+        //                     margin:0;
+        //                     font-size:28px;
+        //                 ">
+        //                     Security Alert
+        //                 </h1>
 
-                        <p style="
-                            margin-top:10px;
-                            font-size:15px;
-                        ">
-                            Wrong Email Attempt
-                        </p>
+        //                 <p style="
+        //                     margin-top:10px;
+        //                     font-size:15px;
+        //                 ">
+        //                     Wrong Email Attempt
+        //                 </p>
 
-                    </div>
-
-
-                    <!-- Body -->
-                    <div style="
-                        padding:25px 18px;
-                    ">
-
-                        <h2 style="
-                            color:#dc2626;
-                            margin-top:0;
-                            font-size:24px;
-                        ">
-                            Wrong Email ❌
-                        </h2>
-
-                        <p style="
-                            color:#4b5563;
-                            line-height:24px;
-                            font-size:15px;
-                        ">
-                            Someone entered wrong email in your dashboard account.
-                        </p>
+        //             </div>
 
 
-                        <!-- Table -->
-                        <table style="
-                            width:100%;
-                            border-collapse:collapse;
-                            margin-top:20px;
-                            word-break:break-word;
-                        ">
+        //             <!-- Body -->
+        //             <div style="
+        //                 padding:25px 18px;
+        //             ">
 
-                            <tr>
+        //                 <h2 style="
+        //                     color:#dc2626;
+        //                     margin-top:0;
+        //                     font-size:24px;
+        //                 ">
+        //                     Wrong Email ❌
+        //                 </h2>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    width:38%;
-                                    font-size:14px;
-                                ">
-                                    Email
-                                </td>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${email}
-                                </td>
-
-                            </tr>
+        //                 <p style="
+        //                     color:#4b5563;
+        //                     line-height:24px;
+        //                     font-size:15px;
+        //                 ">
+        //                     Someone entered wrong email in your dashboard account.
+        //                 </p>
 
 
-                            <tr>
+        //                 <!-- Table -->
+        //                 <table style="
+        //                     width:100%;
+        //                     border-collapse:collapse;
+        //                     margin-top:20px;
+        //                     word-break:break-word;
+        //                 ">
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    font-size:14px;
-                                ">
-                                    Device
-                                </td>
+        //                     <tr>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${deviceName}
-                                </td>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             width:38%;
+        //                             font-size:14px;
+        //                         ">
+        //                             Email
+        //                         </td>
 
-                            </tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${email}
+        //                         </td>
 
-
-                            <tr>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    font-size:14px;
-                                ">
-                                    Browser
-                                </td>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${browser}
-                                </td>
-
-                            </tr>
+        //                     </tr>
 
 
-                            <tr>
+        //                     <tr>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    font-size:14px;
-                                ">
-                                    OS
-                                </td>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             font-size:14px;
+        //                         ">
+        //                             Device
+        //                         </td>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${os}
-                                </td>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${deviceName}
+        //                         </td>
 
-                            </tr>
-
-
-                            <tr>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    font-size:14px;
-                                ">
-                                    Location
-                                </td>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${location}
-                                </td>
-
-                            </tr>
+        //                     </tr>
 
 
-                            <tr>
+        //                     <tr>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    font-size:14px;
-                                ">
-                                    Time
-                                </td>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             font-size:14px;
+        //                         ">
+        //                             Browser
+        //                         </td>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${loginTime}
-                                </td>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${browser}
+        //                         </td>
 
-                            </tr>
-
-                        </table>
+        //                     </tr>
 
 
-                        <!-- Alert Box -->
-                        <div style="
-                            margin-top:22px;
-                            background:#fee2e2;
-                            padding:16px;
-                            border-radius:10px;
-                            color:#991b1b;
-                            font-size:14px;
-                            line-height:22px;
-                        ">
+        //                     <tr>
 
-                            If this was not you, secure your account immediately.
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             font-size:14px;
+        //                         ">
+        //                             OS
+        //                         </td>
 
-                        </div>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${os}
+        //                         </td>
 
-                    </div>
+        //                     </tr>
 
 
-                    <!-- Footer -->
-                    <div style="
-                        background:#111827;
-                        padding:18px;
-                        text-align:center;
-                        color:#d1d5db;
-                        font-size:13px;
-                    ">
+        //                     <tr>
 
-                        © 2026 Gym Dashboard | Security Team
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             font-size:14px;
+        //                         ">
+        //                             Location
+        //                         </td>
 
-                    </div>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${location}
+        //                         </td>
 
-                </div>
+        //                     </tr>
 
-            </div>
 
-        </body>
+        //                     <tr>
 
-        </html>
-        `
-            )
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             font-size:14px;
+        //                         ">
+        //                             Time
+        //                         </td>
+
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${loginTime}
+        //                         </td>
+
+        //                     </tr>
+
+        //                 </table>
+
+
+        //                 <!-- Alert Box -->
+        //                 <div style="
+        //                     margin-top:22px;
+        //                     background:#fee2e2;
+        //                     padding:16px;
+        //                     border-radius:10px;
+        //                     color:#991b1b;
+        //                     font-size:14px;
+        //                     line-height:22px;
+        //                 ">
+
+        //                     If this was not you, secure your account immediately.
+
+        //                 </div>
+
+        //             </div>
+
+
+        //             <!-- Footer -->
+        //             <div style="
+        //                 background:#111827;
+        //                 padding:18px;
+        //                 text-align:center;
+        //                 color:#d1d5db;
+        //                 font-size:13px;
+        //             ">
+
+        //                 © 2026 Gym Dashboard | Security Team
+
+        //             </div>
+
+        //         </div>
+
+        //     </div>
+
+        // </body>
+
+        // </html>
+        // `
+        //     )
 
             return res.send({
                 status: false,
@@ -529,263 +529,263 @@ let login = async (req, res) => {
         // Wrong Password
         if (!checkPassword) {
 
-            await sendMail(
+        //     await sendMail(
 
-                "Wrong Password Alert",
+        //         "Wrong Password Alert",
 
-                `
-        <!DOCTYPE html>
+        //         `
+        // <!DOCTYPE html>
 
-        <html>
+        // <html>
 
-        <head>
+        // <head>
 
-            <meta charset="UTF-8"/>
+        //     <meta charset="UTF-8"/>
 
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        //     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        </head>
+        // </head>
 
-        <body style="
-            margin:0;
-            padding:0;
-            background:#f3f4f6;
-            font-family:Arial,sans-serif;
-        ">
+        // <body style="
+        //     margin:0;
+        //     padding:0;
+        //     background:#f3f4f6;
+        //     font-family:Arial,sans-serif;
+        // ">
 
-            <div style="
-                width:100%;
-                padding:20px 10px;
-                box-sizing:border-box;
-            ">
+        //     <div style="
+        //         width:100%;
+        //         padding:20px 10px;
+        //         box-sizing:border-box;
+        //     ">
 
-                <div style="
-                    max-width:650px;
-                    margin:auto;
-                    background:#ffffff;
-                    border-radius:16px;
-                    overflow:hidden;
-                    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-                ">
+        //         <div style="
+        //             max-width:650px;
+        //             margin:auto;
+        //             background:#ffffff;
+        //             border-radius:16px;
+        //             overflow:hidden;
+        //             box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        //         ">
 
-                    <!-- Header -->
-                    <div style="
-                        background:#dc2626;
-                        padding:30px 20px;
-                        text-align:center;
-                        color:white;
-                    ">
+        //             <!-- Header -->
+        //             <div style="
+        //                 background:#dc2626;
+        //                 padding:30px 20px;
+        //                 text-align:center;
+        //                 color:white;
+        //             ">
 
-                        <h1 style="
-                            margin:0;
-                            font-size:30px;
-                        ">
-                            Security Alert
-                        </h1>
+        //                 <h1 style="
+        //                     margin:0;
+        //                     font-size:30px;
+        //                 ">
+        //                     Security Alert
+        //                 </h1>
 
-                        <p style="
-                            margin-top:10px;
-                            font-size:15px;
-                        ">
-                            Wrong Password Attempt
-                        </p>
+        //                 <p style="
+        //                     margin-top:10px;
+        //                     font-size:15px;
+        //                 ">
+        //                     Wrong Password Attempt
+        //                 </p>
 
-                    </div>
-
-
-                    <!-- Body -->
-                    <div style="
-                        padding:25px 20px;
-                    ">
-
-                        <h2 style="
-                            color:#dc2626;
-                            margin-top:0;
-                            font-size:24px;
-                        ">
-                            Wrong Password ⚠️
-                        </h2>
-
-                        <p style="
-                            color:#4b5563;
-                            line-height:24px;
-                            font-size:15px;
-                        ">
-                            Someone entered wrong password in your account.
-                        </p>
+        //             </div>
 
 
-                        <!-- Table -->
-                        <table style="
-                            width:100%;
-                            border-collapse:collapse;
-                            margin-top:20px;
-                            word-break:break-word;
-                        ">
+        //             <!-- Body -->
+        //             <div style="
+        //                 padding:25px 20px;
+        //             ">
 
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                    width:40%;
-                                ">
-                                    Email
-                                </td>
+        //                 <h2 style="
+        //                     color:#dc2626;
+        //                     margin-top:0;
+        //                     font-size:24px;
+        //                 ">
+        //                     Wrong Password ⚠️
+        //                 </h2>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${email}
-                                </td>
-                            </tr>
+        //                 <p style="
+        //                     color:#4b5563;
+        //                     line-height:24px;
+        //                     font-size:15px;
+        //                 ">
+        //                     Someone entered wrong password in your account.
+        //                 </p>
 
 
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                ">
-                                    Device
-                                </td>
+        //                 <!-- Table -->
+        //                 <table style="
+        //                     width:100%;
+        //                     border-collapse:collapse;
+        //                     margin-top:20px;
+        //                     word-break:break-word;
+        //                 ">
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${deviceName}
-                                </td>
-                            </tr>
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                             width:40%;
+        //                         ">
+        //                             Email
+        //                         </td>
 
-
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                ">
-                                    Browser
-                                </td>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${browser}
-                                </td>
-                            </tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${email}
+        //                         </td>
+        //                     </tr>
 
 
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                ">
-                                    OS
-                                </td>
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                         ">
+        //                             Device
+        //                         </td>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${os}
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                ">
-                                    Location
-                                </td>
-
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${location}
-                                </td>
-                            </tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${deviceName}
+        //                         </td>
+        //                     </tr>
 
 
-                            <tr>
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    background:#f9fafb;
-                                    font-weight:bold;
-                                ">
-                                    Time
-                                </td>
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                         ">
+        //                             Browser
+        //                         </td>
 
-                                <td style="
-                                    padding:12px;
-                                    border:1px solid #e5e7eb;
-                                    font-size:14px;
-                                ">
-                                    ${loginTime}
-                                </td>
-                            </tr>
-
-                        </table>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${browser}
+        //                         </td>
+        //                     </tr>
 
 
-                        <!-- Alert -->
-                        <div style="
-                            margin-top:25px;
-                            background:#fee2e2;
-                            padding:18px;
-                            border-radius:10px;
-                            color:#991b1b;
-                            font-size:14px;
-                            line-height:22px;
-                        ">
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                         ">
+        //                             OS
+        //                         </td>
 
-                            If this was not you, please change your password immediately.
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${os}
+        //                         </td>
+        //                     </tr>
 
-                        </div>
 
-                    </div>
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                         ">
+        //                             Location
+        //                         </td>
+
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${location}
+        //                         </td>
+        //                     </tr>
 
 
-                    <!-- Footer -->
-                    <div style="
-                        background:#111827;
-                        padding:18px;
-                        text-align:center;
-                        color:#d1d5db;
-                        font-size:13px;
-                    ">
+        //                     <tr>
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             background:#f9fafb;
+        //                             font-weight:bold;
+        //                         ">
+        //                             Time
+        //                         </td>
 
-                        © 2026 Gym Dashboard | Security Team
+        //                         <td style="
+        //                             padding:12px;
+        //                             border:1px solid #e5e7eb;
+        //                             font-size:14px;
+        //                         ">
+        //                             ${loginTime}
+        //                         </td>
+        //                     </tr>
 
-                    </div>
+        //                 </table>
 
-                </div>
 
-            </div>
+        //                 <!-- Alert -->
+        //                 <div style="
+        //                     margin-top:25px;
+        //                     background:#fee2e2;
+        //                     padding:18px;
+        //                     border-radius:10px;
+        //                     color:#991b1b;
+        //                     font-size:14px;
+        //                     line-height:22px;
+        //                 ">
 
-        </body>
+        //                     If this was not you, please change your password immediately.
 
-        </html>
-        `
-            )
+        //                 </div>
+
+        //             </div>
+
+
+        //             <!-- Footer -->
+        //             <div style="
+        //                 background:#111827;
+        //                 padding:18px;
+        //                 text-align:center;
+        //                 color:#d1d5db;
+        //                 font-size:13px;
+        //             ">
+
+        //                 © 2026 Gym Dashboard | Security Team
+
+        //             </div>
+
+        //         </div>
+
+        //     </div>
+
+        // </body>
+
+        // </html>
+        // `
+        //     )
 
             return res.send({
                 status: false,
@@ -804,264 +804,264 @@ let login = async (req, res) => {
 
 
         // Login Success
-        await sendMail(
+    //     await sendMail(
 
-            "Login Success",
-
-
-            `
-    <!DOCTYPE html>
-
-    <html>
-
-    <head>
-
-        <meta charset="UTF-8" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    </head>
-
-    <body style="
-        margin:0;
-        padding:0;
-        background:#f3f4f6;
-        font-family:Arial,sans-serif;
-    ">
-
-        <div style="
-            width:100%;
-            padding:20px 10px;
-            box-sizing:border-box;
-        ">
-
-            <div style="
-                max-width:650px;
-                margin:auto;
-                background:#ffffff;
-                border-radius:16px;
-                overflow:hidden;
-                box-shadow:0 4px 15px rgba(0,0,0,0.1);
-            ">
-
-                <!-- Header -->
-                <div style="
-                    background:#2563eb;
-                    padding:30px 20px;
-                    text-align:center;
-                    color:white;
-                ">
-
-                    <h1 style="
-                        margin:0;
-                        font-size:30px;
-                    ">
-                        Gym Dashboard
-                    </h1>
-
-                    <p style="
-                        margin-top:10px;
-                        font-size:15px;
-                    ">
-                        Security Login Alert
-                    </p>
-
-                </div>
+    //         "Login Success",
 
 
-                <!-- Body -->
-                <div style="
-                    padding:25px 20px;
-                ">
+    //         `
+    // <!DOCTYPE html>
 
-                    <h2 style="
-                        color:#16a34a;
-                        margin-top:0;
-                        font-size:24px;
-                    ">
-                        Login Successful ✅
-                    </h2>
+    // <html>
 
-                    <p style="
-                        color:#4b5563;
-                        line-height:24px;
-                        font-size:15px;
-                    ">
-                        A new login was detected in your account.
-                    </p>
+    // <head>
 
+    //     <meta charset="UTF-8" />
 
-                    <!-- Details -->
-                    <table style="
-                        width:100%;
-                        border-collapse:collapse;
-                        margin-top:20px;
-                        word-break:break-word;
-                    ">
+    //     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                                width:40%;
-                            ">
-                                Email
-                            </td>
+    // </head>
 
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${email}
-                            </td>
-                        </tr>
+    // <body style="
+    //     margin:0;
+    //     padding:0;
+    //     background:#f3f4f6;
+    //     font-family:Arial,sans-serif;
+    // ">
 
+    //     <div style="
+    //         width:100%;
+    //         padding:20px 10px;
+    //         box-sizing:border-box;
+    //     ">
 
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                            ">
-                                Device
-                            </td>
+    //         <div style="
+    //             max-width:650px;
+    //             margin:auto;
+    //             background:#ffffff;
+    //             border-radius:16px;
+    //             overflow:hidden;
+    //             box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    //         ">
 
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${deviceName}
-                            </td>
-                        </tr>
+    //             <!-- Header -->
+    //             <div style="
+    //                 background:#2563eb;
+    //                 padding:30px 20px;
+    //                 text-align:center;
+    //                 color:white;
+    //             ">
+
+    //                 <h1 style="
+    //                     margin:0;
+    //                     font-size:30px;
+    //                 ">
+    //                     Gym Dashboard
+    //                 </h1>
+
+    //                 <p style="
+    //                     margin-top:10px;
+    //                     font-size:15px;
+    //                 ">
+    //                     Security Login Alert
+    //                 </p>
+
+    //             </div>
 
 
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                            ">
-                                Browser
-                            </td>
+    //             <!-- Body -->
+    //             <div style="
+    //                 padding:25px 20px;
+    //             ">
 
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${browser}
-                            </td>
-                        </tr>
+    //                 <h2 style="
+    //                     color:#16a34a;
+    //                     margin-top:0;
+    //                     font-size:24px;
+    //                 ">
+    //                     Login Successful ✅
+    //                 </h2>
 
-
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                            ">
-                                OS
-                            </td>
-
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${os}
-                            </td>
-                        </tr>
+    //                 <p style="
+    //                     color:#4b5563;
+    //                     line-height:24px;
+    //                     font-size:15px;
+    //                 ">
+    //                     A new login was detected in your account.
+    //                 </p>
 
 
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                            ">
-                                Location
-                            </td>
+    //                 <!-- Details -->
+    //                 <table style="
+    //                     width:100%;
+    //                     border-collapse:collapse;
+    //                     margin-top:20px;
+    //                     word-break:break-word;
+    //                 ">
 
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${location}
-                            </td>
-                        </tr>
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                             width:40%;
+    //                         ">
+    //                             Email
+    //                         </td>
 
-
-                        <tr>
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                background:#f9fafb;
-                                font-weight:bold;
-                            ">
-                                Time
-                            </td>
-
-                            <td style="
-                                padding:12px;
-                                border:1px solid #e5e7eb;
-                                font-size:14px;
-                            ">
-                                ${loginTime}
-                            </td>
-                        </tr>
-
-                    </table>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${email}
+    //                         </td>
+    //                     </tr>
 
 
-                    <!-- Alert -->
-                    <div style="
-                        margin-top:25px;
-                        background:#fef3c7;
-                        padding:18px;
-                        border-radius:10px;
-                        color:#92400e;
-                        font-size:14px;
-                        line-height:22px;
-                    ">
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                         ">
+    //                             Device
+    //                         </td>
 
-                        If this was not you, please change your password immediately.
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${deviceName}
+    //                         </td>
+    //                     </tr>
 
-                    </div>
 
-                </div>
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                         ">
+    //                             Browser
+    //                         </td>
+
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${browser}
+    //                         </td>
+    //                     </tr>
 
 
-                <!-- Footer -->
-                <div style="
-                    background:#111827;
-                    padding:18px;
-                    text-align:center;
-                    color:#d1d5db;
-                    font-size:13px;
-                ">
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                         ">
+    //                             OS
+    //                         </td>
 
-                    © 2026 Gym Dashboard | Security Team
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${os}
+    //                         </td>
+    //                     </tr>
 
-                </div>
 
-            </div>
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                         ">
+    //                             Location
+    //                         </td>
 
-        </div>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${location}
+    //                         </td>
+    //                     </tr>
 
-    </body>
 
-    </html>
-    `
-        )
+    //                     <tr>
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             background:#f9fafb;
+    //                             font-weight:bold;
+    //                         ">
+    //                             Time
+    //                         </td>
+
+    //                         <td style="
+    //                             padding:12px;
+    //                             border:1px solid #e5e7eb;
+    //                             font-size:14px;
+    //                         ">
+    //                             ${loginTime}
+    //                         </td>
+    //                     </tr>
+
+    //                 </table>
+
+
+    //                 <!-- Alert -->
+    //                 <div style="
+    //                     margin-top:25px;
+    //                     background:#fef3c7;
+    //                     padding:18px;
+    //                     border-radius:10px;
+    //                     color:#92400e;
+    //                     font-size:14px;
+    //                     line-height:22px;
+    //                 ">
+
+    //                     If this was not you, please change your password immediately.
+
+    //                 </div>
+
+    //             </div>
+
+
+    //             <!-- Footer -->
+    //             <div style="
+    //                 background:#111827;
+    //                 padding:18px;
+    //                 text-align:center;
+    //                 color:#d1d5db;
+    //                 font-size:13px;
+    //             ">
+
+    //                 © 2026 Gym Dashboard | Security Team
+
+    //             </div>
+
+    //         </div>
+
+    //     </div>
+
+    // </body>
+
+    // </html>
+    // `
+    //     )
 
 
 
