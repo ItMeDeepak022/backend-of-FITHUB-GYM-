@@ -4,9 +4,10 @@ const sendMail = async (subject, html,) => {
 
     let transporter = nodemailer.createTransport(
         {
-            host: "smtp.gmail.com",
-            port:465,
-            secure:true, // Use true for port 465, false for port 587
+            service: "gmail",
+            // host: "smtp.gmail.com",
+            // port:465,
+            // secure:true, // Use true for port 465, false for port 587
             auth: {
                 user: process.env.Email,
                 pass: process.env.Pass
@@ -24,8 +25,8 @@ const sendMail = async (subject, html,) => {
 
     })
 
-    
+
 }
 
 
-module.exports= {sendMail}
+module.exports = { sendMail }
