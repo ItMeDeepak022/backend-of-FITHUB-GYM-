@@ -1,3 +1,4 @@
+
 const { sendEmailQuery } = require("../../config/emailconfig");
 const userqueryModel = require("../../models/dashboardModel/userquery.model")
 
@@ -165,14 +166,14 @@ let addQuery = async (req, res) => {
 
     // Admin Email
     await sendEmailQuery({
-        to: process.env.Email,
+        to: 'stylishboy3404@gmail.com',
         subject: `New Enquiry from ${name}`,
         html: adminTemplate,
     });
 
     // Admin Email
     await sendEmailQuery({
-        to: email,
+        to:'stylishboy3404@gmail.com',
         subject: "We Have Received Your Enquiry",
         html: userTemplate,
     });
