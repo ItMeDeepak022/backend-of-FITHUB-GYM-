@@ -5,7 +5,6 @@ let webapiRoutes = express()
 
 webapiRoutes.get('/fetch-program', fetchprogram)
 webapiRoutes.get('/fetch-nutrition', fetchnutrition)
-webapiRoutes.get('/fetch-nutrition', fetchnutrition)
 webapiRoutes.get('/fetch-blog', fetchblog)
 webapiRoutes.get('/fetch-location', fetchlocation)
 webapiRoutes.get('/fetch-faq', fetchfaq)

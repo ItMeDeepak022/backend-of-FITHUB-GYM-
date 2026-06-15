@@ -1,6 +1,4 @@
 require('dotenv').config()
-const dns = require("dns");
-dns.setDefaultResultOrder("ipv4first");
 let express = require('express')
 let mongoose = require('mongoose')
 const { dashboardRoutes } = require('./backend/routes/dashboardRoutes/dashboardRoutes')
