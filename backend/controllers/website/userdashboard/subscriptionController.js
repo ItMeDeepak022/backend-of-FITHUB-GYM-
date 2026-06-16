@@ -23,12 +23,37 @@ let createOrder = async (req, res) => {
         const { userId } = decoded;
 
         let subscriptionObj = { ...req.body, userId };
+
+        // const start = new Date(subscriptionObj.startDate);
+
+        // const end = new Date(start);
+
+        // end.setMonth(end.getMonth() + Number(subscriptionObj.duration));
+        // subscriptionObj.endDate = end
+
         const start = new Date(subscriptionObj.startDate);
+
+        const months = parseInt(subscriptionObj.duration);
+
+        if (isNaN(months)) {
+            return res.send({
+                status: false,
+                message: "Invalid duration"
+            });
+        }
+
+        if (isNaN(start.getTime())) {
+            return res.send({
+                status: false,
+                message: "Invalid start date"
+            });
+        }
 
         const end = new Date(start);
 
-        end.setMonth(end.getMonth() + Number(subscriptionObj.duration));
-        subscriptionObj.endDate = end
+        end.setMonth(end.getMonth() + months);
+
+        subscriptionObj.endDate = end;
 
         // CASH PAYMENT
         if (subscriptionObj.paymentMethod === "cash") {
@@ -133,7 +158,7 @@ let getSubscription = async (req, res) => {
     const token = req.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, process.env.Token_Key);
     const { userId } = decoded;
-    let obj = {userId,paymentStatus:'Success'}
+    let obj = { userId, paymentStatus: 'Success' }
     let data = await subscriptionModel.find(obj)
     res.send({
         status: true,
