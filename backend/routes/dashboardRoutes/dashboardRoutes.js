@@ -83,7 +83,6 @@ dashboardRoutes.delete('/delete-query/:id', deleteQuery)
 dashboardRoutes.get('/get-Allmember',getAllmember)
 dashboardRoutes.delete('/delete-member/:id',datadelete)
 
-// Pdf Download Query 
-dashboardRoutes.get('/download-pdf', downloadQueryPDF)
+ 
 
 module.exports = { dashboardRoutes }
