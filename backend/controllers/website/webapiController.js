@@ -45,7 +45,8 @@ let fetchlocation = async (req, res) => {
     res.send(
         {
             status: true,
-            message: 'location data fetched...'
+            message: 'location data fetched...',
+            data
         }
     )
 }
