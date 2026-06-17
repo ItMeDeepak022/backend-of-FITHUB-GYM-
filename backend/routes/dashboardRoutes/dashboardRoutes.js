@@ -1,5 +1,5 @@
 let express = require('express')
-const { register, login, securityToken, changepassword, editAdminprofile, getAdminprofile} = require('../../controllers/authentication/admin/authController')
+const { register, login, securityToken, changepassword, editAdminprofile, getAdminprofile } = require('../../controllers/authentication/admin/authController')
 const { addProgram, getProgram, deleteProgram, updateProgram } = require('../../controllers/dashboard/programController')
 const uploadFile = require('../../config/fileuploadConfig')
 const { addNutrition, getNutrition, deletenutrition, editNutrition } = require('../../controllers/dashboard/nutritionController')
@@ -10,6 +10,7 @@ const { addtestimonial, gettestimonial, edittestimonial, deletetestimonial } = r
 const { addQuery, getQuery, deleteQuery, downloadQueryPDF } = require('../../controllers/dashboard/queryController')
 const { verifyToken } = require('../../middleware/verifyToken')
 const { getAllmember, datadelete } = require('../../controllers/dashboard/subscription')
+const { getuserRegistred, deleteRegistredUsers } = require('../../controllers/dashboard/registred-users')
 
 
 
@@ -18,10 +19,10 @@ let dashboardRoutes = express.Router()
 //Admin Authentication Parts
 dashboardRoutes.post('/admin-signUp', register)
 dashboardRoutes.post('/admin-signIn', login)
-dashboardRoutes.put('/change-adminPassword',changepassword)
-dashboardRoutes.put('/edit-adminProfile',uploadFile('admin-profile').single('profileImg'),editAdminprofile)
+dashboardRoutes.put('/change-adminPassword', changepassword)
+dashboardRoutes.put('/edit-adminProfile', uploadFile('admin-profile').single('profileImg'), editAdminprofile)
 dashboardRoutes.get('/verify-token', verifyToken, securityToken)
-dashboardRoutes.get('/get-adminProfile',getAdminprofile)
+dashboardRoutes.get('/get-adminProfile', getAdminprofile)
 
 // Program Part
 
@@ -80,9 +81,12 @@ dashboardRoutes.get('/get-query', getQuery)
 dashboardRoutes.delete('/delete-query/:id', deleteQuery)
 
 // Subscription data fetched
-dashboardRoutes.get('/get-Allmember',getAllmember)
-dashboardRoutes.delete('/delete-member/:id',datadelete)
+dashboardRoutes.get('/get-Allmember', getAllmember)
+dashboardRoutes.delete('/delete-member/:id', datadelete)
 
- 
+// Registred Users data fetched
+dashboardRoutes.get('/get-registered', getuserRegistred)
+dashboardRoutes.delete('/delete-registered/:id',deleteRegistredUsers)
+
 
 module.exports = { dashboardRoutes }
