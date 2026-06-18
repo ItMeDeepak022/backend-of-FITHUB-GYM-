@@ -1,5 +1,7 @@
 const userauthModel = require("../../models/webModel/userModel/userauth.model")
 const cloudinary = require("../../config/cloudinary");
+const subscriptionModel = require("../../models/webModel/userModel/subscription.model");
+
 let getuserRegistred = async (req, res) => {
 
     let data = await userauthModel.find()
@@ -9,36 +11,49 @@ let getuserRegistred = async (req, res) => {
         data
     })
 }
+
 let deleteRegistredUsers = async (req, res) => {
     try {
-        let { id } = req.params;
 
-        let data = await userauthModel.findById(id);
+        const { id } = req.params;
 
-        if (!data) {
+        const user = await userauthModel.findOne({ _id: id });
+
+
+        if (!user) {
             return res.send({
                 status: false,
                 message: "User not found"
             });
         }
 
-        if (data.public_id) {
-            await cloudinary.uploader.destroy(data.public_id);
+        // Delete cloudinary image
+        if (user.public_id) {
+            await cloudinary.uploader.destroy(user.public_id);
         }
 
-        await userauthModel.deleteOne({ _id: id });
+        // Delete all subscriptions of user
+        await subscriptionModel.deleteMany({
+            userId: user._id
+        });
 
-        res.send({
+        // Delete user
+        await userauthModel.deleteOne({
+            _id: user._id
+        });
+
+        return res.send({
             status: true,
-            message: "Registered User deleted successfully",
-          
+            message: "User and subscriptions deleted successfully"
         });
 
     } catch (error) {
-        res.status(500).send({
+
+        return res.status(500).send({
             status: false,
             message: error.message
         });
+
     }
 };
 

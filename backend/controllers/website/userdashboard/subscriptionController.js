@@ -24,13 +24,7 @@ let createOrder = async (req, res) => {
 
         let subscriptionObj = { ...req.body, userId };
 
-        // const start = new Date(subscriptionObj.startDate);
-
-        // const end = new Date(start);
-
-        // end.setMonth(end.getMonth() + Number(subscriptionObj.duration));
-        // subscriptionObj.endDate = end
-
+         
         const start = new Date(subscriptionObj.startDate);
 
         const months = parseInt(subscriptionObj.duration);
